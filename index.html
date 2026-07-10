@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David — Still curious. Still technical. Still building.</title>
+<meta name="description" content="David is a lifelong technologist, maker, simulator enthusiast, and self-directed learner exploring AI, simulation, 3D printing, digital creation, and what useful work can look like in the next chapter.">
+<link rel="canonical" href="https://davidchiles.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://davidchiles.com/">
+<meta property="og:site_name" content="David Chiles">
+<meta property="og:title" content="David — Still curious. Still technical. Still building what comes next.">
+<meta property="og:description" content="A lifelong technologist, maker, simulator enthusiast, and self-directed learner exploring AI, simulation, 3D printing, digital creation, and what useful work can look like in the next chapter.">
+<meta property="og:image" content="https://davidchiles.com/images/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David in his workshop, with movie-room signs and 3D-printing equipment behind him">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F6F1;
+  --ink:#1C2830;
+  --ink-soft:#45535C;
+  --magenta:#A63263;
+  --airway:#2E5E8C;
+  --terrain:#E6ECDE;
+  --line:#C7D0C9;
+  --card:#FDFDFB;
+  --maxw:1080px;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --display:'Archivo',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--sans);
+  font-size:17.5px;
+  line-height:1.65;
+  color:var(--ink);
+  background:
+    repeating-linear-gradient(0deg,transparent 0 47px,rgba(46,94,140,.06) 47px 48px),
+    repeating-linear-gradient(90deg,transparent 0 47px,rgba(46,94,140,.06) 47px 48px),
+    var(--paper);
+}
+a{color:var(--airway)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--magenta);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+header{
+  border-bottom:1px solid var(--line);
+  background:rgba(244,246,241,.92);
+  backdrop-filter:blur(6px);
+  position:sticky;top:0;z-index:20;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.callsign{font-family:var(--mono);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.callsign b{color:var(--magenta)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft)}
+nav a:hover{color:var(--magenta)}
+@media(max-width:720px){
+  nav ul{gap:14px}
+  nav li.hide-m{display:none}
+  nav a{font-size:.72rem;letter-spacing:.06em}
+  .callsign b{display:none}
+}
+
+/* ---------- in-section photo ---------- */
+.leg-photo{margin:24px 0 0;max-width:430px}
+.leg-photo img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.leg-photo figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:10px}
+
+/* ---------- readout chip ---------- */
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);
+  border:1px solid var(--line);
+  background:var(--card);
+  padding:5px 12px;border-radius:3px;
+}
+.chip::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--magenta);flex:none}
+.chip.blue::before{background:var(--airway)}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 72px;position:relative;overflow:hidden}
+.hero-inner{display:flex;gap:48px;align-items:flex-start}
+.hero-text{flex:1;min-width:0}
+.hero-photo{flex:0 0 320px;margin-top:64px}
+.hero-photo img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
+.hero-photo figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:10px}
+@media(max-width:860px){.hero-inner{flex-direction:column}.hero-photo{flex:none;width:100%;max-width:420px;margin-top:8px}}
+.hero .chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.3rem,5.4vw,4.1rem);
+  line-height:1.05;letter-spacing:-.02em;
+  max-width:15ch;
+}
+h1 .accent{color:var(--magenta)}
+.hero-copy{margin-top:26px;max-width:58ch}
+.hero-copy p{color:var(--ink-soft);margin-bottom:14px}
+.hero-copy p.lede{font-size:1.15rem;color:var(--ink)}
+.hero .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+.btn{
+  font-family:var(--mono);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:13px 22px;border-radius:3px;display:inline-block;
+}
+.btn.primary{background:var(--magenta);color:#fff;border:1px solid var(--magenta)}
+.btn.primary:hover{background:#8E2A55}
+.btn.ghost{border:1px solid var(--ink);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--magenta);color:var(--magenta)}
+
+/* ---------- route spine ---------- */
+.route{position:relative}
+.route::before{
+  content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;
+  background:var(--airway);opacity:.55;
+}
+section.leg{position:relative;padding:64px 0 64px 56px}
+section.leg:last-of-type{padding-bottom:40px}
+.wpt{
+  position:absolute;left:0;top:72px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--airway);
+  display:flex;align-items:center;justify-content:center;
+}
+.wpt::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+.wpt-label{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--airway);display:block;margin-bottom:10px;
+}
+h2{
+  font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);
+  letter-spacing:-.01em;line-height:1.15;margin-bottom:18px;max-width:24ch;
+}
+.leg p{max-width:66ch;color:var(--ink-soft);margin-bottom:16px}
+.leg p strong{color:var(--ink)}
+@media(max-width:720px){
+  .route::before{left:5px}
+  .wpt{left:-6px;width:20px;height:20px;border-width:2px}
+  section.leg{padding-left:34px}
+}
+
+/* ---------- interests grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:28px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:6px;
+  padding:22px 22px 20px;
+  transition:border-color .18s ease, transform .18s ease;
+}
+.card:hover{border-color:var(--magenta);transform:translateY(-2px)}
+.card .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--magenta);display:block;margin-bottom:10px}
+.card h3{font-family:var(--display);font-weight:700;font-size:1.08rem;margin-bottom:8px}
+.card p{font-size:.95rem;color:var(--ink-soft);margin:0;max-width:none}
+
+/* ---------- sim panel ---------- */
+.panel{
+  background:var(--terrain);border:1px solid var(--line);border-radius:8px;
+  padding:30px;margin-top:26px;
+}
+.panel h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-bottom:12px}
+.gear{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.gear span{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;
+  background:var(--card);border:1px solid var(--line);border-radius:3px;
+  padding:5px 11px;color:var(--ink);
+}
+.sims{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px}
+.sims .card p{font-size:.92rem}
+
+/* ---------- gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:26px}
+.gallery figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.gallery img{width:100%;height:190px;object-fit:cover;display:block}
+.gallery figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);padding:10px 14px}
+
+/* ---------- background strip ---------- */
+.logstrip{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--card);margin-top:24px}
+.logstrip div{padding:20px 22px;border-left:1px solid var(--line)}
+.logstrip div:first-child{border-left:none}
+.logstrip .k{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--airway);display:block;margin-bottom:6px}
+.logstrip .v{font-family:var(--display);font-weight:700;font-size:1rem;line-height:1.35}
+@media(max-width:720px){.logstrip div{border-left:none;border-top:1px solid var(--line)}.logstrip div:first-child{border-top:none}}
+
+/* ---------- audience pull quote ---------- */
+.pull{
+  border-left:4px solid var(--magenta);
+  padding:6px 0 6px 24px;margin:26px 0 6px;
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(1.2rem,2.3vw,1.55rem);line-height:1.35;max-width:30ch;
+}
+
+/* ---------- connect ---------- */
+.connect-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:32px;margin-top:26px}
+.connect-box ul{list-style:none;margin:14px 0 24px}
+.connect-box li{padding:9px 0;border-bottom:1px dashed var(--line);display:flex;gap:12px;align-items:baseline}
+.connect-box li:last-child{border-bottom:none}
+.connect-box li .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--magenta);flex:none;width:110px}
+.social{display:flex;flex-wrap:wrap;gap:12px}
+
+/* ---------- open waypoint / footer ---------- */
+.next-wpt{position:relative;padding:20px 0 80px 56px}
+.next-wpt::before{
+  content:"";position:absolute;left:11px;top:0;height:calc(100% - 88px);width:0;
+  border-left:2px dashed var(--airway);opacity:.55;
+}
+.next-wpt .open-circle{
+  position:absolute;left:-1px;bottom:52px;
+  width:26px;height:26px;border-radius:50%;
+  border:3px dashed var(--magenta);background:var(--paper);
+}
+.next-wpt .nxt{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.next-wpt .nxt b{color:var(--magenta)}
+@media(max-width:720px){
+  .next-wpt{padding-left:34px}
+  .next-wpt::before{left:5px}
+  .next-wpt .open-circle{left:-7px;width:22px;height:22px;border-width:2px}
+}
+footer{border-top:1px solid var(--line);padding:26px 0 40px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+footer p{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="callsign" href="#top">DAVID <b>/ NEXT CHAPTER</b></a>
+    <nav aria-label="Site">
+      <ul>
+        <li class="hide-m"><a href="#now">Now</a></li>
+        <li><a href="#exploring">Exploring</a></li>
+        <li class="hide-m"><a href="#simulation">Simulation</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="hide-m"><a href="#background">Background</a></li>
+        <li><a href="#connect">Connect</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="chips">
+          <span class="chip">Actively exploring</span>
+          <span class="chip blue">Next chapter</span>
+          <span class="chip blue">Destination: open</span>
+        </div>
+        <h1>Still curious. Still technical. <span class="accent">Still building what comes next.</span></h1>
+        <div class="hero-copy">
+          <p class="lede">I'm David — a lifelong technologist, maker, simulator enthusiast, and self-directed learner exploring what useful, creative, technology-driven work can look like in this next chapter.</p>
+          <p>After years in software engineering, technology leadership, and STEM education, I'm less focused on the titles behind me than on the tools, ideas, and people ahead. Right now that means AI, simulation, digital creation, 3D printing, and the kinds of projects that grow from curiosity, experience, and good conversations.</p>
+          <p>I'm not looking for a traditional job. I'm looking for connection, collaboration, contract possibilities, and entrepreneurial paths that are still taking shape.</p>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#connect">Say hello</a>
+          <a class="btn ghost" href="#exploring">See what I'm exploring</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="images/david.jpg" alt="David in his workshop, smiling and gesturing toward his 3D printer and multi-color filament system" width="800" height="1067">
+        <figcaption>That's me, in the corner of the workshop where the 3D printing happens.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="wrap route">
+
+    <section class="leg" id="now">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 01 — Now</span>
+      <h2>This chapter is about exploration, not arrival</h2>
+      <p>I spent a long time building software, leading technology teams, and helping people learn STEM. That work taught me a lot — most of all that I'm happiest when I'm learning something new and making something real. So instead of settling into a predictable routine, I decided to make this next stretch about experimenting in the open: with AI, simulation, photography and video, 3D printing, and whatever grows out of a good conversation.</p>
+      <p>The honest version: I don't have a finished offer or a fixed destination yet, and I'd rather show that openly than pretend otherwise. Some of what I try will work, some won't, and I expect the most interesting opportunities to come from people I haven't met yet. That's why this site exists.</p>
+    </section>
+
+    <section class="leg" id="exploring">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 02 — Exploring</span>
+      <h2>What I'm actually spending time on</h2>
+      <p>These are the things I'm actually working with right now — some I know well, others I'm still learning.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">AI + Computing</span>
+          <h3>Working with AI, not watching it</h3>
+          <p>Hands-on with AI tools for learning, building, and creating — figuring out what they're genuinely good for and where the hype ends.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Simulation</span>
+          <h3>Flight, truck &amp; bus simulators</h3>
+          <p>X-Plane 12, American Truck Simulator, bus sims — and the pursuit of realism in both software and physical hardware.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Making</span>
+          <h3>3D modeling &amp; 3D printing</h3>
+          <p>Designing and printing real objects — from practical fixes to sim-cockpit parts — and learning the whole pipeline from model to material.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Creating</span>
+          <h3>Digital photography &amp; video</h3>
+          <p>Capturing and producing digital images and video, and exploring how modern tools change what one person can create alone.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Hardware</span>
+          <h3>Programmable controls</h3>
+          <p>Yokes, throttles, pedals, wheels, Stream Decks — the gear that turns a desk into a cockpit, and the configuration craft behind it.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Learning</span>
+          <h3>Being a beginner again</h3>
+          <p>Deliberately picking things I'm not good at yet. Experience helps you learn faster; it shouldn't stop you from starting over.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="leg" id="simulation">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 03 — Simulation</span>
+      <h2>One place several interests converge</h2>
+      <p>Simulation is one of my favorite corners of this exploration, because it pulls so many threads together: computing power, physics, 3D graphics, hardware tinkering, and plain enjoyment. The realism available today — in both the software and the physical equipment — keeps improving, and I like keeping up with that edge. It's one chapter of the story here, not the whole book.</p>
+      <figure class="leg-photo">
+        <img src="images/sim-rig.jpg" alt="The driving side of David's sim rig: force-feedback steering wheel, H-pattern shifter, pedals, and a mechanical keyboard behind it" width="900" height="1200" loading="lazy">
+        <figcaption>The driving side of the sim rig.</figcaption>
+      </figure>
+      <div class="panel">
+        <h3>On the sim bench</h3>
+        <div class="sims">
+          <div class="card">
+            <span class="tag">Air</span>
+            <h3>X-Plane 12</h3>
+            <p>Flight simulation with serious physics — procedures, panels, and the endless depth of doing it right.</p>
+          </div>
+          <div class="card">
+            <span class="tag">Road</span>
+            <h3>American Truck Simulator</h3>
+            <p>Long hauls, real routes, and the surprisingly meditative craft of driving well.</p>
+          </div>
+          <div class="card">
+            <span class="tag">Transit</span>
+            <h3>Bus simulators</h3>
+            <p>Urban routes, schedules, and vehicle systems — a different kind of realism challenge.</p>
+          </div>
+        </div>
+        <h3 style="margin-top:24px">The physical side</h3>
+        <div class="gear">
+          <span>Yoke</span><span>Throttle quadrant</span><span>Joystick</span><span>Rudder pedals</span><span>Steering wheel</span><span>Pedal set</span><span>Stream Deck</span><span>Programmable panels</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="leg" id="projects">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 04 — On the Bench</span>
+      <h2>Recent 3D design work</h2>
+      <p>A few pieces from my 3D modeling and printing pipeline — practical designs modeled in CAD, most of them headed for the printer. Nothing here is meant to be gallery art; it's the everyday craft of designing real objects that solve small, real problems.</p>
+      <div class="gallery">
+        <figure><img src="images/design-01.jpg" alt="CAD render of a slotted external hard-drive tray designed for four Seagate drives" width="800" height="600" loading="lazy"><figcaption>External hard-drive tray for an OMV NAS — holds four Seagate external drives</figcaption></figure>
+        <figure><img src="images/design-02.jpg" alt="CAD render of a vented rack-style tray, an alternate design for the same four external hard drives" width="800" height="600" loading="lazy"><figcaption>Alternate tray design for the same four NAS drives — vented, rack-style</figcaption></figure>
+        <figure><img src="images/design-03.jpg" alt="CAD render of a three-legged shelf stand for an Omada EAP-770 access point" width="800" height="600" loading="lazy"><figcaption>Shelf stand for an Omada EAP-770 access point — an alternative to ceiling mounting</figcaption></figure>
+        <figure><img src="images/design-04.jpg" alt="CAD render of a lattice-back desk stand, a second mounting option for the EAP-770 access point" width="800" height="600" loading="lazy"><figcaption>Second stand option for the EAP-770, with a lattice back for airflow</figcaption></figure>
+        <figure><img src="images/design-05.jpg" alt="CAD render of a desk caddy holding a stylus pen and accessory puck" width="800" height="600" loading="lazy"><figcaption>Pen and accessory caddy for the drawing-tablet corner of the desk</figcaption></figure>
+        <figure><img src="images/design-07.jpg" alt="CAD render of an angled tray with three compartments for TV and streaming-device remotes" width="800" height="600" loading="lazy"><figcaption>Angled tray that keeps the TV and streaming remotes in one place</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="leg" id="background">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 05 — Logbook</span>
+      <h2>The experience behind the curiosity</h2>
+      <p>The past isn't the story here, but it explains why my perspective might be useful. I've built systems, led technology organizations, and taught others to do the same — mostly by learning it myself first.</p>
+      <div class="logstrip">
+        <div><span class="k">Origin</span><span class="v">Self-taught software engineer</span></div>
+        <div><span class="k">Craft</span><span class="v">Software architect</span></div>
+        <div><span class="k">Leadership</span><span class="v">Federal CTO &amp; acting CIO</span></div>
+        <div><span class="k">Education</span><span class="v">CEO, STEM education nonprofit</span></div>
+      </div>
+    </section>
+
+    <section class="leg" id="notdone">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 06 — Who This Is For</span>
+      <h2>If you're near retirement and nowhere near finished</h2>
+      <p>Much of what I'm doing here is for people in a similar spot: in or near retirement, still curious, still learning, and still drawn to technologies and creative fields that are too often assumed to belong to younger generations. If you've ever set up a 3D printer, learned an AI tool, or built a sim cockpit at a stage of life when many people assume your exploring days are behind you — you're my kind of person.</p>
+      <div class="pull">Experience and curiosity turn out to be a powerful combination.</div>
+      <p>I'm just as glad to connect with technologists, makers, simulator enthusiasts, AI learners, digital creators, and educators of any age. If you're building or learning something interesting, I'd like to hear about it.</p>
+    </section>
+
+    <section class="leg" id="connect">
+      <span class="wpt" aria-hidden="true"></span>
+      <span class="wpt-label">Waypoint 07 — Connect</span>
+      <h2>Useful conversations welcome</h2>
+      <p>The whole point of making this chapter visible is connection. If any of this overlaps with what you're learning, flying, driving, printing, or building — I'd genuinely like to hear from you.</p>
+      <div class="connect-box">
+        <ul>
+          <li><span class="k">Good for</span><span>Collaboration ideas, contract possibilities, sim talk, maker questions, AI experiments, or just comparing notes on a shared interest.</span></li>
+          <li><span class="k">Response</span><span>I read everything and reply to anything genuine.</span></li>
+        </ul>
+        <div class="social">
+          <a class="btn primary" href="mailto:hello@davidchiles.com">Email David</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/dcchiles/" rel="me">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="wrap next-wpt">
+    <span class="open-circle" aria-hidden="true"></span>
+    <p class="nxt">Next waypoint: <b>TBD</b> — and that's exactly how it should be.</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>DAVID / NEXT CHAPTER — built while learning in public.</p>
+    <p><a href="#top">Back to top ↑</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
