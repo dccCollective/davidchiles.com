@@ -1,2 +1,2 @@
 # davidchiles.com
-Single page website
+Single page website for my domain
