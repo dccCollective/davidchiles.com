@@ -30,6 +30,7 @@
   --line:#C7D0C9;
   --card:#FDFDFB;
   --maxw:1080px;
+  --gutter:24px;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
   --sans:'IBM Plex Sans',system-ui,sans-serif;
   --display:'Archivo',system-ui,sans-serif;
@@ -52,7 +53,7 @@ body{
 }
 a{color:var(--airway)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--magenta);outline-offset:3px;border-radius:2px}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
 
 /* ---------- header ---------- */
 header{
@@ -92,7 +93,10 @@ nav a:hover{color:var(--magenta)}
 .chip.blue::before{background:var(--airway)}
 
 /* ---------- hero ---------- */
-.hero{padding:88px 0 72px;position:relative;overflow:hidden}
+/* Longhand padding: a `padding` shorthand here would reset the horizontal
+   gutter inherited from .wrap, since both selectors have equal specificity
+   and this rule comes later in the sheet. */
+.hero{padding-top:88px;padding-bottom:72px;position:relative;overflow:hidden}
 .hero-inner{display:flex;gap:48px;align-items:flex-start}
 .hero-text{flex:1;min-width:0}
 .hero-photo{flex:0 0 320px;margin-top:64px}
@@ -121,9 +125,13 @@ h1 .accent{color:var(--magenta)}
 .btn.ghost:hover{border-color:var(--magenta);color:var(--magenta)}
 
 /* ---------- route spine ---------- */
+/* The spine is absolutely positioned, so it offsets from .wrap's PADDING box
+   (outer edge). The .wpt circles are normal block descendants, so they start
+   at the CONTENT edge. Both offsets therefore include the gutter explicitly,
+   which keeps the line centred through the circles at any gutter value. */
 .route{position:relative}
 .route::before{
-  content:"";position:absolute;left:11px;top:0;bottom:0;width:2px;
+  content:"";position:absolute;left:calc(var(--gutter) + 11px);top:0;bottom:0;width:2px;
   background:var(--airway);opacity:.55;
 }
 section.leg{position:relative;padding:64px 0 64px 56px}
@@ -146,7 +154,7 @@ h2{
 .leg p{max-width:66ch;color:var(--ink-soft);margin-bottom:16px}
 .leg p strong{color:var(--ink)}
 @media(max-width:720px){
-  .route::before{left:5px}
+  .route::before{left:calc(var(--gutter) + 3px)}
   .wpt{left:-6px;width:20px;height:20px;border-width:2px}
   section.leg{padding-left:34px}
 }
@@ -209,22 +217,29 @@ h2{
 .social{display:flex;flex-wrap:wrap;gap:12px}
 
 /* ---------- open waypoint / footer ---------- */
-.next-wpt{position:relative;padding:20px 0 80px 56px}
+/* Longhand padding again: the 56px left indent must ADD to the gutter rather
+   than replace it, and the right gutter has to survive. */
+.next-wpt{
+  position:relative;
+  padding-top:20px;padding-bottom:80px;
+  padding-left:calc(var(--gutter) + 56px);
+  padding-right:var(--gutter);
+}
 .next-wpt::before{
-  content:"";position:absolute;left:11px;top:0;height:calc(100% - 88px);width:0;
+  content:"";position:absolute;left:calc(var(--gutter) + 11px);top:0;height:calc(100% - 88px);width:0;
   border-left:2px dashed var(--airway);opacity:.55;
 }
 .next-wpt .open-circle{
-  position:absolute;left:-1px;bottom:52px;
+  position:absolute;left:calc(var(--gutter) - 1px);bottom:52px;
   width:26px;height:26px;border-radius:50%;
   border:3px dashed var(--magenta);background:var(--paper);
 }
 .next-wpt .nxt{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 .next-wpt .nxt b{color:var(--magenta)}
 @media(max-width:720px){
-  .next-wpt{padding-left:34px}
-  .next-wpt::before{left:5px}
-  .next-wpt .open-circle{left:-7px;width:22px;height:22px;border-width:2px}
+  .next-wpt{padding-left:calc(var(--gutter) + 34px)}
+  .next-wpt::before{left:calc(var(--gutter) + 3px)}
+  .next-wpt .open-circle{left:calc(var(--gutter) - 7px);width:22px;height:22px;border-width:2px}
 }
 footer{border-top:1px solid var(--line);padding:26px 0 40px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
